@@ -14,9 +14,22 @@ This is a Java Spring Boot application for the Flight Management System. The app
 - Swagger (API documentation)
 - Postman (API testing)
 
-## UML Diagram of Project
+## UML Diagrams of Project
+### Entities Diagram 
+![image](https://github.com/ertantherock/FlightServices/assets/107481123/0708671a-2bcf-40e6-8c13-52a1bc75003d)
 
-![Project_UML_Diagram.png](..%2Fecommerce_project%2Fspring-boot-ecommerce%2FProject_UML_Diagram.png)
+### Flight Services
+![image](https://github.com/ertantherock/FlightServices/assets/107481123/16df176c-c454-475e-9159-c43ad8c0190e)
+
+
+### User Services
+![image](https://github.com/ertantherock/FlightServices/assets/107481123/6d99025b-6275-496c-95a4-b80e7e51a58b)
+
+
+### Airport Services
+![image](https://github.com/ertantherock/FlightServices/assets/107481123/390b2247-9b7e-4dd8-bccc-3c2a212fe4ca)
+
+
 
 ## Features
 
@@ -79,7 +92,7 @@ Tests **Postman**  and documentation at [Postman](https://documenter.getpostman.
 2. **Run the application:**
 
     ```bash
-    cd amadeus-java-spring-boot
+    cd project directory
     mvn spring-boot:run
     ```
 
