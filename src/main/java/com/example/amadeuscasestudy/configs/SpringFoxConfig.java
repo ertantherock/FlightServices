@@ -32,7 +32,7 @@ public class SpringFoxConfig implements WebMvcConfigurer {
     }
     private ApiInfo apiEndPointsInfo() {
         return new ApiInfoBuilder().title("Spring Boot Swagger Examples")
-                .description("User Api Dokümantasyonu")
+                .description("Flight Managament Api Documentation")
                 .contact(new Contact("Ertan Kaya", "", "ertancank@gmail.com"))
                 .license("Apache 2.0")
                 .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")

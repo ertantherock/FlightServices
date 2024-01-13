@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface FlightRepository extends JpaRepository<Flight, Long> {
-    Optional<Flight> findByDepartureAirport_AidAndArrivalAirport_AidAndDepartureTimeAndReturnTime(Long did, Long aid, LocalDateTime departureTime, LocalDateTime returnTime);
+    List<Flight> findByDepartureAirport_AidAndArrivalAirport_AidAndDepartureTimeAndReturnTime(Long did, Long aid, LocalDateTime departureTime, LocalDateTime returnTime);
 
-    Optional<Flight> findByDepartureAirport_AidAndArrivalAirport_AidAndDepartureTime(Long did, Long aid, LocalDateTime departureTime);
+    List<Flight> findByDepartureAirport_AidAndArrivalAirport_AidAndDepartureTime(Long did, Long aid, LocalDateTime departureTime);
 
 
     

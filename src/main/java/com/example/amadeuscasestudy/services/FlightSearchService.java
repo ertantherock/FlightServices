@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,43 +18,38 @@ public class FlightSearchService {
 
     final FlightRepository flightRepository;
 
-    public ResponseEntity getFlights (Long did, Long aid, LocalDateTime departureTime, LocalDateTime returnTime) {
-        Optional<Flight> optionalFlight = flightRepository.findByDepartureAirport_AidAndArrivalAirport_AidAndDepartureTimeAndReturnTime(did, aid, departureTime, returnTime);
-        Optional<Flight> optionalFlight2 = flightRepository.findByDepartureAirport_AidAndArrivalAirport_AidAndDepartureTime(did, aid, departureTime);
 
-        if (optionalFlight.isPresent() & returnTime != null){
 
-            return new ResponseEntity(optionalFlight.get(), HttpStatus.OK);
-        }else if (optionalFlight.isPresent() & returnTime == null){
 
-            return new ResponseEntity(optionalFlight2.get(), HttpStatus.OK);
+    public ResponseEntity getFlights(Flight request) {
 
+        if (request.getDepartureAirport() == null) {
+            return new ResponseEntity<>("Departure airport is null", HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity("Flight Not Found Failed !",HttpStatus.BAD_REQUEST);
-    }
+        List<Flight> flights;
 
-
-    public Optional<Flight> searchFlights(Long did, Long aid, LocalDateTime departureTime, LocalDateTime returnTime) {
-        if (returnTime != null) {
-            System.out.println("Two Way Flight");
-            return searchRoundTripFlights(did, aid, departureTime, returnTime);
+        if (request.getReturnTime() != null) {
+            // Two-way flight
+            flights = flightRepository.findByDepartureAirport_AidAndArrivalAirport_AidAndDepartureTimeAndReturnTime(
+                    request.getDepartureAirport().getAid(),
+                    request.getArrivalAirport().getAid(),
+                    request.getDepartureTime(),
+                    request.getReturnTime());
         } else {
-            System.out.println("One Way Flight");
-            return searchOneWayFlight(did, aid, departureTime) ;
+            // One-way flight
+            flights = flightRepository.findByDepartureAirport_AidAndArrivalAirport_AidAndDepartureTime(
+                    request.getDepartureAirport().getAid(),
+                    request.getArrivalAirport().getAid(),
+                    request.getDepartureTime());
         }
+
+        if (!flights.isEmpty()) {
+            return new ResponseEntity<>(flights, HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>("Flight Not Found", HttpStatus.BAD_REQUEST);
     }
-
-    private Optional<Flight> searchOneWayFlight(Long did, Long aid, LocalDateTime departureTime) {
-        return flightRepository.findByDepartureAirport_AidAndArrivalAirport_AidAndDepartureTime(
-                did, aid, departureTime);
-    }
-
-
-    private Optional<Flight> searchRoundTripFlights(Long did, Long aid, LocalDateTime departureTime, LocalDateTime returnTime) {
-        return flightRepository.findByDepartureAirport_AidAndArrivalAirport_AidAndDepartureTimeAndReturnTime(
-                did, aid, departureTime, returnTime);
-
-    }
-
 }
+
+

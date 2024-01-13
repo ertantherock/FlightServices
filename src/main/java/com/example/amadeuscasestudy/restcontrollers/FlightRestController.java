@@ -54,15 +54,9 @@ public class FlightRestController {
         return flightService.getSingleFlight(fid);
     }
 
-    @GetMapping("/searchFlight/{did}/{aid}/{departureTime}/{returnTime}")
-    @ApiOperation(value = "Search flight by departure id, airport id, departure time and return time")
-    public ResponseEntity getFlights(
-            @PathVariable Long did,
-            @PathVariable Long aid,
-            @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime departureTime,
-            @PathVariable(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime returnTime) {
-        return flightSearchService.getFlights(did, aid, departureTime, returnTime);
-    }
+
+
+
 
 
 
