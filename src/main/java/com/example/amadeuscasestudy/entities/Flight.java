@@ -1,6 +1,10 @@
 package com.example.amadeuscasestudy.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 import lombok.Data;
 
 import java.sql.Timestamp;
@@ -23,10 +27,15 @@ public class Flight {
     @JoinColumn(name = "arrival_airport_id")
     private Airport arrivalAirport;
 
+
+    @NotNull(message = "Departure time cannot be null")
     private LocalDateTime departureTime;
+
 
     private LocalDateTime returnTime;
 
+    @NotNull(message = "Price cannot be null")
+    @Min(message = "Price cannot be lower than zero", value = 0)
     private Integer price;
 
 
