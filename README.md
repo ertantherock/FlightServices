@@ -88,15 +88,18 @@ Tests **Postman**  and documentation at [Postman](https://documenter.getpostman.
 ## Configuration
 
 1. **Configure the application.properties file with MySQL database details. For this project you can use SQL file if you want**
+2. **Pull the project to your local**
+   
+   `https://github.com/ertantherock/FlightServices.git`
 
-2. **Run the application:**
+3. **Run the application:**
 
     ```bash
     cd project directory
     mvn spring-boot:run
     ```
 
-3. **Access the application at [http://localhost:8080](http://localhost:8080).**
+4. **Access the application at [http://localhost:8080](http://localhost:8080).**
 
 ## Testing
 
