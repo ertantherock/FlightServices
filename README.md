@@ -81,8 +81,8 @@ This is a Java Spring Boot application for the Flight Management System. The app
 
 ### API Documentation
 
-Explore the API endpoints using the **Swagger** documentation at [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html).
-Tests **Postman**  and documentation at [Postman](https://documenter.getpostman.com/view/24069775/2s9YsNdqC3).
+- Explore the API endpoints using the **Swagger** documentation at [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html).
+- Tests **Postman**  and documentation at [Postman](https://documenter.getpostman.com/view/24069775/2s9YsNdqC3).
 
 ### Security
 
