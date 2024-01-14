@@ -29,6 +29,10 @@ This is a Java Spring Boot application for the Flight Management System. The app
 ### Airport Services
 ![image](https://github.com/ertantherock/FlightServices/assets/107481123/390b2247-9b7e-4dd8-bccc-3c2a212fe4ca)
 
+### Flight Schedule Services
+![image](https://github.com/ertantherock/FlightServices/assets/107481123/3436ee26-7a51-4664-a291-46c7cc463757)
+
+
 
 
 ## Features
@@ -62,7 +66,9 @@ This is a Java Spring Boot application for the Flight Management System. The app
 
 ### Flight Search By Departure City, Arrival City, Departure Date, Return Date
 
-### Mock Data API 
+### Mock Data API  
+
+- Data taken from MOCK API which I have created in XML format from mocky.io. The link is: https://run.mocky.io/v3/5283c63c-c479-472d-bfe2-91767a7296c5 . The scheduler works every midnight and saves data to scheduled_flights table.
 
 ### User Services
 
@@ -82,12 +88,13 @@ Tests **Postman**  and documentation at [Postman](https://documenter.getpostman.
 
 - Role-based authentication is implemented using Spring Security.
 - Admin users have additional privileges for managing flights and airports.
+- Normal users cannot add, delete, or update airports or flights.
 
 
 
 ## Configuration
 
-1. **Configure the application.properties file with MySQL database details. For this project you can use SQL file if you want**
+1. **Configure the application.properties file with MySQL database details. For this project, you can use SQL files if you want**
 2. **Pull the project to your local**
    
    `https://github.com/ertantherock/FlightServices.git`
