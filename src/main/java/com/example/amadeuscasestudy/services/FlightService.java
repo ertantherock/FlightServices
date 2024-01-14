@@ -2,6 +2,7 @@ package com.example.amadeuscasestudy.services;
 
 import com.example.amadeuscasestudy.configs.Rest;
 import com.example.amadeuscasestudy.entities.Flight;
+import com.example.amadeuscasestudy.entities.User;
 import com.example.amadeuscasestudy.repositories.FlightRepository;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
@@ -66,6 +67,10 @@ public class FlightService {
 
         return new ResponseEntity("Flight Not Found Failed !",HttpStatus.BAD_REQUEST);
     }
+
+
+
+
 
 
 

@@ -27,13 +27,13 @@ public class AirportRestController {
         return airportService.saveAirport(airport);
     }
 
-    @GetMapping("/deleteAirport/{aid}")
+    @DeleteMapping("/deleteAirport/{aid}")
     @ApiOperation(value = "New airport delete method")
     public ResponseEntity delete( @PathVariable Long aid){
         return airportService.deleteAirport(aid);
     }
 
-    @PostMapping("/updateAirport")
+    @PutMapping("/updateAirport")
     @ApiOperation(value = "New airport update method")
     public ResponseEntity update (@Valid @RequestBody Airport airport){
         return airportService.updateAirport(airport);

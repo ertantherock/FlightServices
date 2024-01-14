@@ -30,13 +30,13 @@ public class FlightRestController {
         return flightService.save(flight);
     }
 
-    @GetMapping("/deleteFlight/{fid}")
+    @DeleteMapping("/deleteFlight/{fid}")
     @ApiOperation(value = "New Flight delete method")
     public ResponseEntity delete( @PathVariable Long fid){
         return flightService.delete(fid);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     @ApiOperation(value = "New Flight update method")
     public ResponseEntity update (@Valid @RequestBody Flight flight){
         return flightService.update(flight);

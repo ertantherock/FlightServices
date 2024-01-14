@@ -28,13 +28,13 @@ public class Flight {
     private Airport arrivalAirport;
 
 
-    @NotNull(message = "Departure time cannot be null")
+
+    @FutureOrPresent(message = "Departure time needs to be present or future time")
     private LocalDateTime departureTime;
 
 
     private LocalDateTime returnTime;
 
-    @NotNull(message = "Price cannot be null")
     @Min(message = "Price cannot be lower than zero", value = 0)
     private Integer price;
 
